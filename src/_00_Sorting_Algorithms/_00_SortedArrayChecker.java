@@ -28,12 +28,12 @@ static boolean intArraySorted(int[] arr) {
 	//   array is in ascending order and false otherwise
 static boolean doubleArraySorted(double[] arr) {
 	int ascend = 0;
-	for (int i = 0; i < arr.length; i++) {
+	for (int i = 0; i < arr.length - 1; i++) {
 		if(arr[i + 1] > arr[i]) {
 			ascend++;
 		}
 	} 
-	if(ascend == arr.length) {
+	if(ascend == arr.length - 2) {
 		return true;
 	}
 	return false;
