@@ -46,26 +46,46 @@ public class Algorithms {
 		}
 		return false;
 	}
-	public static List<Double> sortScores(List<Double> results){
-		for (int i = 0; i < results.size(); i++) {
-			boolean sorted = true;
-			while (sorted) {
-			sorted = false;
-			for (int j = 1; j < results.size(); i++) {
-				if(results.get(j - 1) > results.get(j)) {
-					Double result = results.get(j - 1);
-					Double temp = results.get(j - 1);
-				    Double result2 = results.get(j);
-					result = results.get(j);
-					result2 = temp;
-					sorted = true;
+
+	public static List<Double> sortScores(List<Double> scores) {
+		for(int i = 0; i < scores.size(); i++) {
+			for(int j = i+1; j<scores.size(); j++) {
+				if(scores.get(i) > scores.get(j)) {
+					
+					double temp = scores.get(i);
+					scores.set(i, scores.get(j));
+					scores.set(j, temp);
 				}
 			}
-			if(sorted == true) {
-				System.out.println(results);
-			}
+		}
+		return scores;
+	}
+	
+	public static List<String> sortDNA(List<String> sequence){
+		for (int i = 0; i < sequence.size(); i++) {
+			for (int j = i + 1; j < sequence.size(); j++) {
+				if(sequence.get(i).length() > sequence.get(j).length()) {
+					String temp = sequence.get(i);
+					sequence.set(i, sequence.get(j));
+					sequence.set(j, temp);
+				}
 			}
 		}
-		return results;
+		return sequence;
+		
+	}
+	
+	public static List<String> sortWords(List<String> words){
+		for (int i = 0; i < words.size(); i++) {
+			for (int j = i + 1; j < words.size(); j++) {
+				if(words.get(i).compareTo(words.get(j)) > 0) {
+					String temp = words.get(i);
+					words.set(i, words.get(j));
+					words.set(j, temp);
+				}
+			}
+		}
+		return words;
+		
 	}
 }
